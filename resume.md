@@ -18,17 +18,21 @@ Quality Assurance Engineer	Arlington, Virginia
 •	Drafted weekly QuickSight reports for stakeholders - identified common failures, reducing common post-release defects by 15%.
 •	Created technical documentation for new hire onboarding including installation/setup and usage guides for test dependencies.
 •	Collaborated cross-functionally with developers, product managers, and other stakeholders to reproduce, document, and triage UI/UX and functional defects, ensuring adherence to internal accessibility and design standards.
+
 George Mason University	08/2023 - 01/2024
 Data Science Associate	Fairfax, Virginia
 •	Analyzed 500+ production sample details from a chemical manufacturing firm to evaluate and cluster textile material similarities
 •	Preprocessed data to standardize and normalize data – used K-means clustering to group similar data clusters
 •	Used SAS and Python to perform hypothesis testing and data modeling, streamlining material property analysis and enabling data-driven engineering improvements – improved failure prediction accuracy by 11% compared to a linear regression baseline
 •	Utilized AWS Lambda to run lightweight data cleaning functions and manage API-based dataset retrieval; stored and organized cleaned data in Amazon Aurora, ensuring reliable access for graduate-level research and statistical analysis.
+
 Jamaica Hospital Medical Center	05/2023 - 08/2023
 Clinical Informatics Intern – Blood Banking and Transfusion Services	Queens, New York
 •	Assisted entry of clinical transfusion data across our team’s lab, ensuring 100% traceability and compliance with hospital policies
 •	Ensured data consistency and integrity in transfusion records through validation of information against EMR and LIS systems, maintaining HIPAA-compliant audit trails.
-PROJECTS________________________________________
+
+PROJECTS
+________________________________________
 VitalPath: EMS Protocol Decision Tool | Python | 150+ Real EMS Integrated Legal Protocols
 •	Created a rule-based EMS application specific to real-world EMS guidelines, integrating precise user logic for seamless operation.
 •	Applied supervised learning with a Decision Tree Classifier on labeled EMS protocols – used train/test split to evaluate for accuracy
