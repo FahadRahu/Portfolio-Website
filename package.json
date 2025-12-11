@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Spectacular portfolio website for Fahad Rahu - QA Engineer & Data Analytics Professional",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "portfolio",
+    "qa-engineer",
+    "data-analytics",
+    "web-development"
+  ],
+  "author": "Fahad Rahu",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.4.1"
+  }
+}

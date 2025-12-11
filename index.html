@@ -1,301 +1,1041 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fahad Rahu - Portfolio</title>
+    <title>Fahad Rahu | QA Engineer & Data Analytics Professional</title>
+    <meta name="description" content="Quality Assurance Engineer at Amazon with 3+ years experience in software engineering, data analytics, and cloud solutions.">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Fahad Rahu</a>
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         PRELOADER - Spectacular Loading Animation
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <span class="bracket">&lt;</span>
+                <span class="logo-text">FR</span>
+                <span class="bracket">/&gt;</span>
             </div>
-            <ul class="nav-menu">
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+            <p class="preloader-text">Initializing Experience...</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         CUSTOM CURSOR - Interactive Mouse Follower
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         PARTICLE CANVAS - Interactive Background Effect
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         NOISE OVERLAY - Subtle Texture for Depth
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <div class="noise-overlay"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         GRADIENT ORBS - Floating Color Blobs
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <div class="gradient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         NAVIGATION - Glassmorphism Navbar
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <!-- Animated Logo -->
+            <a href="#home" class="nav-logo magnetic">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-name">Fahad</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#home" class="nav-link" data-text="Home">
+                        <span>Home</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="#about" class="nav-link" data-text="About">
+                        <span>About</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#experience" class="nav-link" data-text="Experience">
+                        <span>Experience</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#projects" class="nav-link" data-text="Projects">
+                        <span>Projects</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#skills" class="nav-link" data-text="Skills">
+                        <span>Skills</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#contact" class="nav-link" data-text="Contact">
+                        <span>Contact</span>
+                    </a>
                 </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle magnetic" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon theme-icon-dark"></i>
+                    <i class="fas fa-sun theme-icon-light"></i>
+                    <span class="toggle-blob"></span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="hamburger magnetic" id="hamburger" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Fahad Rahu</h1>
-            <h2>Quality Assurance Engineer & Data Analytics Professional</h2>
-            <p>Analytical and technically skilled innovator with 3+ years of experience in software engineering and data analytics</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         HERO SECTION - Spectacular Landing
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <section id="home" class="hero">
+        <!-- Floating Geometric Shapes -->
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="hero-content">
+                <!-- Greeting with Line -->
+                <div class="hero-greeting reveal-text">
+                    <span class="greeting-line"></span>
+                    <span class="greeting-text">Hello, I'm</span>
+                </div>
+
+                <!-- Name with Glitch Effect -->
+                <h1 class="hero-title">
+                    <span class="title-line">
+                        <span class="glitch" data-text="Fahad Rahu">Fahad Rahu</span>
+                    </span>
+                </h1>
+
+                <!-- Typing Effect for Roles -->
+                <div class="hero-roles">
+                    <span class="role-prefix">A</span>
+                    <span class="typing-wrapper">
+                        <span id="typing-text" class="typing-text"></span>
+                        <span class="typing-cursor">|</span>
+                    </span>
+                </div>
+
+                <!-- Description -->
+                <p class="hero-description reveal-text">
+                    Driving innovation at <span class="highlight">Amazon</span> with 3+ years of experience crafting 
+                    <span class="highlight">quality software</span> and <span class="highlight">data-driven solutions</span> 
+                    that impact 70M+ users globally.
+                </p>
+
+                <!-- Stats Row -->
+                <div class="hero-stats">
+                    <div class="stat-item glass">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item glass">
+                        <span class="stat-number" data-count="70">0</span>
+                        <span class="stat-suffix">M+</span>
+                        <span class="stat-label">Users Impacted</span>
+                    </div>
+                    <div class="stat-item glass">
+                        <span class="stat-number" data-count="4">0</span>
+                        <span class="stat-suffix"></span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary magnetic">
+                        <span class="btn-text">Get In Touch</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                        <span class="btn-glow"></span>
+                    </a>
+                    <a href="#projects" class="btn btn-secondary magnetic">
+                        <span class="btn-text">View Projects</span>
+                        <span class="btn-icon"><i class="fas fa-code"></i></span>
+                    </a>
+                </div>
             </div>
+
+            <!-- Right Visual -->
+            <div class="hero-visual">
+                <!-- Tech Orbit Animation -->
+                <div class="tech-orbit">
+                    <div class="orbit-ring ring-1">
+                        <div class="orbit-icon" style="--delay: 0s;"><i class="fab fa-python"></i></div>
+                        <div class="orbit-icon" style="--delay: 2s;"><i class="fab fa-js"></i></div>
+                        <div class="orbit-icon" style="--delay: 4s;"><i class="fab fa-react"></i></div>
+                    </div>
+                    <div class="orbit-ring ring-2">
+                        <div class="orbit-icon" style="--delay: 1s;"><i class="fab fa-aws"></i></div>
+                        <div class="orbit-icon" style="--delay: 3s;"><i class="fab fa-docker"></i></div>
+                        <div class="orbit-icon" style="--delay: 5s;"><i class="fab fa-git-alt"></i></div>
+                    </div>
+                    <div class="orbit-center">
+                        <div class="center-blob"></div>
+                        <span class="center-text">&lt;/&gt;</span>
+                    </div>
+                </div>
+
+                <!-- Floating Code Snippet -->
+                <div class="code-snippet glass">
+                    <div class="code-header">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="code-title">portfolio.js</span>
+                    </div>
+                    <pre class="code-content"><code><span class="code-keyword">const</span> <span class="code-variable">developer</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"Fahad Rahu"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"QA Engineer"</span>,
+  <span class="code-property">company</span>: <span class="code-string">"Amazon"</span>,
+  <span class="code-property">passion</span>: <span class="code-string">"Building quality"</span>
+};</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll to explore</span>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         ABOUT SECTION - Personal Introduction
+    ═══════════════════════════════════════════════════════════════════════════ -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am an analytical and technically skilled innovator with over 3 years of experience in software engineering and data 
-                        analytics. Currently working as a Quality Assurance Engineer at Amazon, I have proven experience in working with big 
-                        data to deliver new Alexa product devices and software ahead of schedule for over 70+ million customers worldwide.</p>
-                    <p>I'm strongly experienced in AWS architecture and GenAI tools and services to implement cloud-native GenAI solutions to 
-                        streamline product development and deployment. My background in Chemical Engineering gives me a unique perspective 
-                        on problem-solving and critical thinking.</p>
-                    
-                    <div class="certifications">
-                        <h3>Certifications</h3>
-                        <ul>
-                            <li><i class="fas fa-certificate"></i> NVIDIA-Certified Associate: Generative AI and LLMs (NCA-GENL)</li>
-                            <li><i class="fas fa-certificate"></i> AWS Certified Cloud Practitioner</li>
-                            <li><i class="fas fa-certificate"></i> ISTQB Certified Tester – Foundational</li>
-                            <li><i class="fas fa-certificate"></i> Virginia EMT License</li>
-                        </ul>
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-tag">&lt;about&gt;</span>
+                <h2 class="section-title">
+                    <span class="title-accent">Who</span> I Am
+                </h2>
+                <p class="section-subtitle">Get to know the person behind the code</p>
+            </div>
+
+            <div class="about-grid">
+                <!-- Left: Visual/Avatar -->
+                <div class="about-visual">
+                    <div class="avatar-container">
+                        <div class="avatar-frame">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
+                            <div class="avatar-ring"></div>
+                        </div>
+                        <div class="avatar-badge glass">
+                            <span class="badge-years">3+</span>
+                            <span class="badge-text">Years</span>
+                        </div>
+                        <div class="avatar-location glass">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Arlington, VA</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating Elements -->
+                    <div class="about-floaters">
+                        <div class="floater floater-1"><i class="fas fa-code"></i></div>
+                        <div class="floater floater-2"><i class="fas fa-database"></i></div>
+                        <div class="floater floater-3"><i class="fas fa-cloud"></i></div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="about-content">
+                    <div class="about-text glass">
+                        <p>
+                            I am an <span class="highlight">analytical and technically skilled innovator</span> with over 
+                            3 years of experience in software engineering and data analytics. Currently working as a 
+                            <span class="highlight">Quality Assurance Engineer at Amazon</span>, I have proven experience 
+                            in working with big data to deliver new Alexa product devices and software ahead of schedule 
+                            for over <span class="highlight">70+ million customers worldwide</span>.
+                        </p>
+                        <p>
+                            I'm strongly experienced in <span class="highlight">AWS architecture</span> and 
+                            <span class="highlight">GenAI tools</span> to implement cloud-native solutions that streamline 
+                            product development. My background in Chemical Engineering gives me a unique perspective on 
+                            problem-solving and critical thinking.
+                        </p>
+                    </div>
+
+                    <!-- Certifications Grid -->
+                    <div class="certifications-grid">
+                        <h3 class="cert-title">
+                            <i class="fas fa-award"></i>
+                            Certifications
+                        </h3>
+                        <div class="cert-cards">
+                            <div class="cert-card glass tilt-card">
+                                <div class="cert-icon nvidia">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>NVIDIA NCA-GENL</h4>
+                                    <p>Generative AI & LLMs</p>
+                                </div>
+                            </div>
+                            <div class="cert-card glass tilt-card">
+                                <div class="cert-icon aws">
+                                    <i class="fab fa-aws"></i>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>AWS Certified</h4>
+                                    <p>Cloud Practitioner</p>
+                                </div>
+                            </div>
+                            <div class="cert-card glass tilt-card">
+                                <div class="cert-icon istqb">
+                                    <i class="fas fa-bug"></i>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>ISTQB Certified</h4>
+                                    <p>Foundational Tester</p>
+                                </div>
+                            </div>
+                            <div class="cert-card glass tilt-card">
+                                <div class="cert-icon emt">
+                                    <i class="fas fa-ambulance"></i>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>Virginia EMT</h4>
+                                    <p>Licensed Responder</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <span class="section-tag section-tag-end">&lt;/about&gt;</span>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         EXPERIENCE SECTION - Professional Timeline
+    ═══════════════════════════════════════════════════════════════════════════ -->
     <section id="experience" class="experience">
-
         <div class="container">
-            <h2 class="section-title">Experience</h2>
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-tag">&lt;experience&gt;</span>
+                <h2 class="section-title">
+                    <span class="title-accent">Work</span> Experience
+                </h2>
+                <p class="section-subtitle">My professional journey and achievements</p>
+            </div>
+
+            <!-- Timeline -->
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-track">
+                    <div class="timeline-progress" id="timeline-progress"></div>
+                </div>
+
+                <!-- Experience Item 1 - Amazon -->
+                <div class="timeline-item glass tilt-card">
+                    <div class="timeline-marker">
+                        <div class="marker-dot">
+                            <i class="fab fa-amazon"></i>
+                        </div>
+                        <span class="marker-pulse current"></span>
+                    </div>
                     <div class="timeline-content">
-                        <h3>Quality Assurance Engineer</h3>
-                        <h4>Amazon | Arlington, Virginia</h4>
-                        <span class="timeline-date">01/2025 – Present</span>
-                        <ul>
-                            <li>Led regression, unit, end-to-end, and UAT testing for the Amazon Devices and Services org</li>
-                            <li>Reviewed and validated 10,000+ weekly UI string updates from GitLab code reviews across 80+ Amazon devices</li>
-                            <li>Leveraged JavaScript and React-based UI frameworks for Vega OS devices to build localized interfaces, 
-                                ensuring accurate translation rendering, layout alignment, and navigation integrity</li>
-                            <li>Drafted weekly QuickSight reports for stakeholders - identified common failures, reducing common post-release 
-                                defects by 15%</li>
+                        <div class="content-header">
+                            <div class="header-left">
+                                <h3 class="job-title">Quality Assurance Engineer</h3>
+                                <h4 class="company">
+                                    <i class="fab fa-amazon"></i> Amazon
+                                    <span class="location">Arlington, Virginia</span>
+                                </h4>
+                            </div>
+                            <div class="header-right">
+                                <span class="date-badge glass">01/2025 – Present</span>
+                                <span class="status-badge current">
+                                    <span class="status-dot"></span>
+                                    Current
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Led <span class="highlight">regression, unit, E2E, and UAT testing</span> for Amazon Devices & Services org
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Reviewed <span class="highlight">10,000+ weekly UI string updates</span> from GitLab across 80+ devices
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Leveraged <span class="highlight">React-based UI frameworks</span> for Vega OS, cutting L10N defect backlog by 30%
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Created <span class="highlight">QuickSight reports</span> reducing post-release defects by 15%
+                            </li>
                         </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">GitLab</span>
+                            <span class="tech-tag">QuickSight</span>
+                            <span class="tech-tag">Selenium</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <!-- Experience Item 2 - GMU -->
+                <div class="timeline-item glass tilt-card">
+                    <div class="timeline-marker">
+                        <div class="marker-dot">
+                            <i class="fas fa-university"></i>
+                        </div>
+                    </div>
                     <div class="timeline-content">
-                        <h3>Data Science Associate</h3>
-                        <h4>George Mason University | Fairfax, Virginia</h4>
-                        <span class="timeline-date">08/2023 – 01/2024</span>
-                        <ul>
-                            <li>Analyzed 500+ production sample details from a chemical manufacturing firm</li>
-                            <li>Cleaned and preprocessed large aggregate data and used Python to organize and create visual models for graduate-level 
-                                research presentations</li>
-                            <li>Improved failure prediction accuracy by 11% compared to a linear regression baseline</li>
-                            <li>Utilized AWS Lambda and Amazon Aurora for data management and analysis</li>
+                        <div class="content-header">
+                            <div class="header-left">
+                                <h3 class="job-title">Data Science Associate</h3>
+                                <h4 class="company">
+                                    <i class="fas fa-university"></i> George Mason University
+                                    <span class="location">Fairfax, Virginia</span>
+                                </h4>
+                            </div>
+                            <div class="header-right">
+                                <span class="date-badge glass">08/2023 – 01/2024</span>
+                            </div>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Analyzed <span class="highlight">500+ production samples</span> from chemical manufacturing firm
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Improved <span class="highlight">failure prediction accuracy by 11%</span> compared to linear regression baseline
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Utilized <span class="highlight">AWS Lambda & Amazon Aurora</span> for data management and analysis
+                            </li>
                         </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SAS</span>
+                            <span class="tech-tag">AWS Lambda</span>
+                            <span class="tech-tag">Aurora</span>
+                            <span class="tech-tag">K-Means</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <!-- Experience Item 3 - Hospital -->
+                <div class="timeline-item glass tilt-card">
+                    <div class="timeline-marker">
+                        <div class="marker-dot">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                    </div>
                     <div class="timeline-content">
-                        <h3>Clinical Informatics Intern</h3>
-                        <h4>Jamaica Hospital Medical Center | Queens, New York</h4>
-                        <span class="timeline-date">05/2023 – 08/2023</span>
-                        <ul>
-                            <li>Assisted entry of clinical transfusion data across our team’s lab, ensuring 100% traceability and compliance</li>
-                            <li>Worked directly with the Blood Banking and Transfusion Services team to streamline data management processes</li>
-                            <li>Ensured data consistency and integrity in transfusion records through validation of information against EMR 
-                                and LIS systems</li>
-                            <li>Leveraged SIEM systems like Microsoft Sentinel and Splunk to help maintain HIPAA-compliant audit trails.</li>
+                        <div class="content-header">
+                            <div class="header-left">
+                                <h3 class="job-title">Clinical Informatics Intern</h3>
+                                <h4 class="company">
+                                    <i class="fas fa-hospital"></i> Jamaica Hospital Medical Center
+                                    <span class="location">Queens, New York</span>
+                                </h4>
+                            </div>
+                            <div class="header-right">
+                                <span class="date-badge glass">05/2023 – 08/2023</span>
+                            </div>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Ensured <span class="highlight">100% traceability and compliance</span> for clinical transfusion data
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Validated data against <span class="highlight">EMR and LIS systems</span> for data integrity
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Maintained <span class="highlight">HIPAA-compliant audit trails</span> using Microsoft Sentinel
+                            </li>
                         </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Microsoft Sentinel</span>
+                            <span class="tech-tag">Splunk</span>
+                            <span class="tech-tag">EMR/LIS</span>
+                            <span class="tech-tag">HIPAA</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <span class="section-tag section-tag-end">&lt;/experience&gt;</span>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         PROJECTS SECTION - Showcase Work
+    ═══════════════════════════════════════════════════════════════════════════ -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-tag">&lt;projects&gt;</span>
+                <h2 class="section-title">
+                    <span class="title-accent">Featured</span> Projects
+                </h2>
+                <p class="section-subtitle">Some things I've built and worked on</p>
+            </div>
+
+            <!-- Projects Grid -->
             <div class="projects-grid">
-                <div class="project-card">
+                <!-- Project Card 1 -->
+                <div class="project-card glass tilt-card">
+                    <div class="project-number">01</div>
+                    <div class="project-image">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-links">
+                                <a href="#" class="overlay-link" title="View Project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="overlay-link" title="View Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="project-content">
-                        <h3>VitalPath: EMS Protocol Decision Tool</h3>
-                        <p><strong>Technology:</strong> Python | TypeScript | Git | Docker</p>
-                        <p>Created a clinical decision support system EMS application specific to real-world EMS guidelines, 
-                            integrating precise user logic for seamless operation.</p>
-                        <div class="project-tags">
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Version Control</span>
-                            <span class="tag">Containerization</span>
+                        <span class="project-category">Healthcare Tech</span>
+                        <h3 class="project-title">VitalPath: EMS Protocol Tool</h3>
+                        <p class="project-description">
+                            A clinical decision support system for EMS, integrating 150+ real-world medical protocols 
+                            with precise user logic for emergency responders.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TypeScript</span>
+                            <span>Docker</span>
+                            <span>ML</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-file-medical"></i>
+                                <span>150+ Protocols</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>Decision Tree AI</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- Project Card 2 -->
+                <div class="project-card glass tilt-card">
+                    <div class="project-number">02</div>
+                    <div class="project-image">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-links">
+                                <a href="#" class="overlay-link" title="View Project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="overlay-link" title="View Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="project-content">
-                        <h3>Predictive Modeling of Reaction Yields</h3>
-                        <p><strong>Technology:</strong> Python | PyTorch | Pandas</p>
-                        <p>Cleaned and pre-processed 1000+ experimental reaction datasets for model training – labeled target values for 
-                            absent data. Trained ML models with graduate students to evaluate neural network performance on predicting 
-                            reaction yield count and purity.</p>
-                        <div class="project-tags">
-                            <span class="tag">Neural Networks</span>
-                            <span class="tag">Databases</span>
-                            <span class="tag">Data Visualization</span>
+                        <span class="project-category">Machine Learning</span>
+                        <h3 class="project-title">Reaction Yield Prediction</h3>
+                        <p class="project-description">
+                            Predictive modeling using neural networks to forecast chemical reaction yields and purity 
+                            from 1000+ experimental datasets.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>PyTorch</span>
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-database"></i>
+                                <span>1000+ Datasets</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-brain"></i>
+                                <span>Neural Networks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 - This Portfolio! -->
+                <div class="project-card glass tilt-card featured">
+                    <div class="project-number">03</div>
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i>
+                        Featured
+                    </div>
+                    <div class="project-image">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-links">
+                                <a href="#" class="overlay-link" title="You're viewing it!">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="https://github.com/fahadrahu" class="overlay-link" title="View Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Web Development</span>
+                        <h3 class="project-title">This Portfolio Website</h3>
+                        <p class="project-description">
+                            A spectacular, interactive portfolio featuring particle effects, custom cursor, 
+                            glassmorphism, dark mode, and smooth animations. You're looking at it!
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Canvas</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>Glassmorphism</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-magic"></i>
+                                <span>Particle Effects</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <span class="section-tag section-tag-end">&lt;/projects&gt;</span>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         SKILLS SECTION - Technical Abilities
+    ═══════════════════════════════════════════════════════════════════════════ -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-list">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Git Bash</span>
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-tag">&lt;skills&gt;</span>
+                <h2 class="section-title">
+                    <span class="title-accent">Technical</span> Arsenal
+                </h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
+            </div>
+
+            <!-- Skills Categories -->
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category glass tilt-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-bars">
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-fill" data-percent="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-fill" data-percent="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-fill" data-percent="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-fill" data-percent="70"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React.js</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Scikit-Learn</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Android SDK</span>
+                <!-- Frameworks & Libraries -->
+                <div class="skill-category glass tilt-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Frameworks</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <div class="skill-tag-item">
+                            <i class="fab fa-react"></i>
+                            <span>React.js</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-table"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Scikit-Learn</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-fire"></i>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fab fa-android"></i>
+                            <span>Android SDK</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS CDK</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Selenium</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">GitLab</span>
-                        <span class="skill-tag">Microsoft Sentinel</span>
-                        <span class="skill-tag">JIRA</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Terraform</span>
+                <!-- Cloud & DevOps -->
+                <div class="skill-category glass tilt-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud & DevOps</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <div class="skill-tag-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS CDK</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Lambda</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-database"></i>
+                            <span>Aurora</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-dharmachakra"></i>
+                            <span>Kubernetes</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>Terraform</span>
+                        </div>
                     </div>
                 </div>
 
-                <!--- Extra: Added Cloud & DevOps Skills ---> 
-                <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS Lambda</span>
-                        <span class="skill-tag">Amazon Aurora</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Terraform</span>
+                <!-- Tools & Platforms -->
+                <div class="skill-category glass tilt-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Tools & Platforms</h3>
+                    </div>
+                    <div class="skill-tags-container">
+                        <div class="skill-tag-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fab fa-gitlab"></i>
+                            <span>GitLab</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Selenium</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fab fa-jira"></i>
+                            <span>JIRA</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Tableau</span>
+                        </div>
+                        <div class="skill-tag-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Sentinel</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-cogs"></i> Technical Skills</h3>
-                    <div class="skill-tags"></div>
-                        <span class="skill-tag">Software Testing</span>
-                        <span class="skill-tag">Test Automation</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Cloud Computing</span>
-                        <span class="skill-tag">Data Visualization</span>
+                <!-- Testing & QA -->
+                <div class="skill-category glass tilt-card wide">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3>Testing & QA Expertise</h3>
+                    </div>
+                    <div class="expertise-grid">
+                        <div class="expertise-item">
+                            <div class="expertise-icon"><i class="fas fa-sync-alt"></i></div>
+                            <span>Regression Testing</span>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon"><i class="fas fa-cube"></i></div>
+                            <span>Unit Testing</span>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon"><i class="fas fa-project-diagram"></i></div>
+                            <span>E2E Testing</span>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon"><i class="fas fa-user-check"></i></div>
+                            <span>UAT</span>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon"><i class="fas fa-robot"></i></div>
+                            <span>Test Automation</span>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon"><i class="fas fa-tasks"></i></div>
+                            <span>Agile/Scrum</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <span class="section-tag section-tag-end">&lt;/skills&gt;</span>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         CONTACT SECTION - Get In Touch
+    ═══════════════════════════════════════════════════════════════════════════ -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <div class="contact-content">
-                <div class="contact-info">
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-tag">&lt;contact&gt;</span>
+                <h2 class="section-title">
+                    <span class="title-accent">Let's</span> Connect
+                </h2>
+                <p class="section-subtitle">I'm always open to new opportunities and conversations</p>
+            </div>
 
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="contact-email">
+            <div class="contact-grid">
+                <!-- Contact Cards -->
+                <div class="contact-cards">
+                    <a href="mailto:fahadrahu@gmail.com" class="contact-card glass magnetic">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="card-content">
                             <h3>Email</h3>
-                            <p><a href="mailto:fahadrahu@gmail.com">fahadrahu@gmail.com</a></p>
+                            <p>fahadrahu@gmail.com</p>
                         </div>
-                    </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
 
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div class="contact-phone">
+                    <a href="tel:+15714093742" class="contact-card glass magnetic">
+                        <div class="card-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="card-content">
                             <h3>Phone</h3>
-                            <p><a href="tel:+15714093742">571-409-3742</a></p>
+                            <p>571-409-3742</p>
                         </div>
-                    </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
 
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div class="contact-linkedin">
+                    <a href="https://www.linkedin.com/in/fahadrahu/" target="_blank" class="contact-card glass magnetic">
+                        <div class="card-icon linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="card-content">
                             <h3>LinkedIn</h3>
-                            <p><a href="https://www.linkedin.com/in/fahadrahu/" target="_blank">linkedin.com/in/fahadrahu/</a></p>
+                            <p>in/fahadrahu</p>
                         </div>
-                    </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
 
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <div class="contact-github">
-                            <h3>GitHub</h3>
-                            <p><a href="https://github.com/fahadrahu" target="_blank">github.com/fahadrahu</a></p>
+                    <a href="https://github.com/fahadrahu" target="_blank" class="contact-card glass magnetic">
+                        <div class="card-icon github">
+                            <i class="fab fa-github"></i>
                         </div>
+                        <div class="card-content">
+                            <h3>GitHub</h3>
+                            <p>fahadrahu</p>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- CTA Box -->
+                <div class="contact-cta glass">
+                    <div class="cta-icon">
+                        <i class="fas fa-paper-plane"></i>
                     </div>
+                    <h3>Ready to work together?</h3>
+                    <p>I'm currently open to new opportunities. Whether you have a project in mind or just want to chat, feel free to reach out!</p>
+                    <a href="mailto:fahadrahu@gmail.com" class="btn btn-primary magnetic">
+                        <span class="btn-text">Send a Message</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                        <span class="btn-glow"></span>
+                    </a>
                 </div>
             </div>
+
+            <span class="section-tag section-tag-end">&lt;/contact&gt;</span>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         FOOTER - Bottom of Page
+    ═══════════════════════════════════════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Fahad Rahu. All rights reserved.</p>
+            <div class="footer-content">
+                <!-- Logo -->
+                <a href="#home" class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-name">Fahad</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </a>
+
+                <!-- Social Links -->
+                <div class="footer-social">
+                    <a href="https://github.com/fahadrahu" target="_blank" class="social-link magnetic" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fahadrahu/" target="_blank" class="social-link magnetic" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:fahadrahu@gmail.com" class="social-link magnetic" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <!-- Copyright -->
+                <p class="footer-text">
+                    Built with <span class="heart">&hearts;</span> by Fahad Rahu &copy; 2025
+                </p>
+                <p class="footer-subtext">
+                    Designed with passion. Crafted with code.
+                </p>
+            </div>
         </div>
     </footer>
 
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         SCROLL TO TOP BUTTON
+    ═══════════════════════════════════════════════════════════════════════════ -->
+    <button class="scroll-to-top glass" id="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+        <svg class="progress-ring">
+            <circle class="progress-ring-circle"></circle>
+        </svg>
+    </button>
+
+    <!-- Main Script -->
     <script src="script.js"></script>
 </body>
 </html>

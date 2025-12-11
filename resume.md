@@ -46,3 +46,4 @@ Programming Languages: Python, JavaScript, HTML/CSS, SQL, Java, Git Bash
 Frameworks/Libraries: React.js, Node.js, Pandas, Scikit-Learn, TensorFlow, Android SDK
 Tools: AWS CDK, GitHub, Selenium, VS Code, PyCharm, IntelliJ IDEA, VIM, Tableau
 Technical Skills: CRM & Testing Tools (JIRA, Zendesk, TestRail), Agile Workflow, SDLC, Workday & ERP Systems
+Hobbies: I am a volunteer EMT and have been for 7+ years, staffing an ambulance and responding to emergency calls in my community. I also like to play chess and pickleball! I am interested in AI and its applications in various fields, as well as space and astrophysics.
